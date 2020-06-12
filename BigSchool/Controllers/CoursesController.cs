@@ -21,6 +21,7 @@ namespace BigSchool.Controllers
         }
         // GET: Courses
        [Authorize]
+       [HttpGet]
         public ActionResult Create()
         {
             var viewModel = new CourseWiewModel
@@ -31,6 +32,7 @@ namespace BigSchool.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseWiewModel viewModel)
         {
             if (!ModelState.IsValid)
