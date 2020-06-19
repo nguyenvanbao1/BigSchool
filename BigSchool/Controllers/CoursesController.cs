@@ -26,7 +26,7 @@ namespace BigSchool.Controllers
         {
             var viewModel = new CourseWiewModel
             {
-               categories = _dbContext.categories.ToList()
+               categories = _dbContext.Categories.ToList()
             };
             return View(viewModel);
         }
@@ -37,14 +37,14 @@ namespace BigSchool.Controllers
         {
             if (!ModelState.IsValid)
             {
-                viewModel.categories = _dbContext.categories.ToList();
+                viewModel.categories = _dbContext.Categories.ToList();
                 return View("Create", viewModel);
             }
             var course = new Course
             {
-                LectuieiId = User.Identity.GetUserId(),
+                LecturerId = User.Identity.GetUserId(),
                 DateTime = viewModel.GetDateTime(),
-                categoryId = viewModel.Category,
+                CategoryId = viewModel.Category,
                 Place = viewModel.Place
             };
             _dbContext.Courses.Add(course);

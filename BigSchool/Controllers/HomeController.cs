@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 
+
 namespace BigSchool.Controllers
 {
     public class HomeController : Controller
@@ -19,8 +20,8 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
             var upcommingCourses = _ddContext.Courses
-                .Include(c => c.Lecture)
-                .Include(c => c.category)
+                .Include(c => c.Lecturer)
+                .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
             return View(upcommingCourses);
         }

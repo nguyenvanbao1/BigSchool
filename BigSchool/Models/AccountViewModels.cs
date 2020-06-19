@@ -80,7 +80,7 @@ namespace BigSchool.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
         [Required]
-        [stringLength(255)]
+        [StringLength(255)]
         public string Name { get; set; }
     }
 
